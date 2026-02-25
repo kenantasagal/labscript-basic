@@ -110,7 +110,7 @@ try {
     } else {
         New-LocalUser -Name $ogrenci_adi -NoPassword -FullName $ogrenci_adi -Description "Ogrenci Hesabi - $lab_adi" -ErrorAction Stop | Out-Null
 
-        Add-LocalGroupMember -Group "Users" -Member $ogrenci_adi -ErrorAction SilentlyContinue
+        Add-LocalGroupMember -SID 'S-1-5-32-545' -Member $ogrenci_adi -ErrorAction SilentlyContinue
 
         Durum "'$ogrenci_adi' kullanicisi sifresiz olarak olusturuldu." "ok"
     }
