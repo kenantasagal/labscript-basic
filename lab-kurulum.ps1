@@ -112,7 +112,7 @@ try {
         Durum "'$ogrenci_adi' kullanicisi sifresiz olarak olusturuldu." "ok"
     }
 
-    Add-LocalGroupMember -SID 'S-1-5-32-545' -Member $ogrenci_adi -ErrorAction SilentlyContinue
+    Add-LocalGroupMember -SID 'S-1-5-32-544' -Member $ogrenci_adi -ErrorAction SilentlyContinue
 } catch {
     Durum "Kullanici olusturulamadi: $($_.Exception.Message)" "hata"
 }
