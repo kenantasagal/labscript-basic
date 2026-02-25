@@ -106,14 +106,13 @@ try {
 try {
     $mevcut = Get-LocalUser -Name $ogrenci_adi -ErrorAction SilentlyContinue
     if ($mevcut) {
-        Durum "'$ogrenci_adi' kullanicisi zaten mevcut, atlanıyor." "uyari"
+        Durum "'$ogrenci_adi' kullanicisi zaten mevcut." "uyari"
     } else {
         New-LocalUser -Name $ogrenci_adi -NoPassword -FullName $ogrenci_adi -Description "Ogrenci Hesabi - $lab_adi" -ErrorAction Stop | Out-Null
-
-        Add-LocalGroupMember -SID 'S-1-5-32-545' -Member $ogrenci_adi -ErrorAction SilentlyContinue
-
         Durum "'$ogrenci_adi' kullanicisi sifresiz olarak olusturuldu." "ok"
     }
+
+    Add-LocalGroupMember -SID 'S-1-5-32-545' -Member $ogrenci_adi -ErrorAction SilentlyContinue
 } catch {
     Durum "Kullanici olusturulamadi: $($_.Exception.Message)" "hata"
 }
