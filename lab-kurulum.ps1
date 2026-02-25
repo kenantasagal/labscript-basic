@@ -108,13 +108,7 @@ try {
     if ($mevcut) {
         Durum "'$ogrenci_adi' kullanicisi zaten mevcut, atlanıyor." "uyari"
     } else {
-        New-LocalUser `
-            -Name              $ogrenci_adi `
-            -NoPassword        `
-            -FullName          $ogrenci_adi `
-            -Description       "Ogrenci Hesabi - $lab_adi" `
-            -PasswordNeverExpires $true `
-            -ErrorAction       Stop | Out-Null
+        New-LocalUser -Name $ogrenci_adi -NoPassword -FullName $ogrenci_adi -Description "Ogrenci Hesabi - $lab_adi" -ErrorAction Stop | Out-Null
 
         Add-LocalGroupMember -Group "Users" -Member $ogrenci_adi -ErrorAction SilentlyContinue
 
