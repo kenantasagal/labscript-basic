@@ -647,9 +647,9 @@ function Export-ComputerInfo {
     if ($null -eq $info) { Write-Status "Bilgisayar bilgileri toplanamadı!" "hata"; return $false }
 
     if ([string]::IsNullOrWhiteSpace($FilePath)) {
-        $desktop  = [Environment]::GetFolderPath("Desktop")
+
         $macFile  = $info.MACAddress -replace ':', '-'
-        $FilePath = Join-Path $desktop "bilgisayar-$macFile.csv"
+        $FilePath = Join-Path $PSScriptRoot "bilgisayar-$macFile.csv"
     }
 
     Write-Host "  📁 Dosya: " -ForegroundColor $C.Baslik -NoNewline
@@ -701,7 +701,7 @@ function Import-AndConfigureFromCSV {
     Show-SectionHeader "CSV'DEN OTOMATİK YAPILANDIRMA"
 
     if ([string]::IsNullOrWhiteSpace($FilePath)) {
-        $FilePath = Join-Path ([Environment]::GetFolderPath("Desktop")) "bilgisayar-listesi.csv"
+        $FilePath = Join-Path ($PSScriptRoot) "bilgisayar-listesi.csv"
     }
 
     Write-Host "  📁 CSV: " -ForegroundColor $C.Baslik -NoNewline
@@ -771,7 +771,7 @@ function Start-QuickAutoConfigure {
     Show-SectionHeader "HIZLI OTOMATİK YAPILANDIRMA"
 
     if ([string]::IsNullOrWhiteSpace($FilePath)) {
-        $FilePath = Join-Path ([Environment]::GetFolderPath("Desktop")) "bilgisayar-listesi.csv"
+        $FilePath = Join-Path ($PSScriptRoot) "bilgisayar-listesi.csv"
     }
 
     Write-Host "  🔍 CSV dosyası kontrol ediliyor..." -ForegroundColor $C.Baslik

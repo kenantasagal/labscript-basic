@@ -85,7 +85,7 @@ Tek bilgisayarı manuel olarak yapılandırır.
 
 ### [3] Bilgisayar Bilgilerini Topla (CSV)
 
-Bilgisayarın MAC adresi, seri numarası, IP adresi ve Windows sürümü bilgilerini masaüstüne CSV olarak kaydeder.
+Bilgisayarın MAC adresi, seri numarası, IP adresi ve Windows sürümü bilgilerini scriptin bulunduğu klasöre (USB) CSV olarak kaydeder.
 
 **Toplu yapılandırma için iş akışı:**
 
@@ -98,7 +98,7 @@ CSV'leri tek dosyada birleştir → "bilgisayar-listesi.csv"
         ↓
 LabNumber ve ComputerNumber sütunlarını doldur
         ↓
-Dosyayı her bilgisayarın masaüstüne kopyala
+Dosyayı USB'deki script klasörüne koy
         ↓
 Her bilgisayarda [4] veya [5] çalıştır
 ```
